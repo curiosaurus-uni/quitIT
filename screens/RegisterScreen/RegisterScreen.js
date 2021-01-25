@@ -85,9 +85,8 @@ const Register = (props) => {
       </View>
       <TouchableOpacity
         style={styles.button}
-        onPress={async () => {
-          await sendData(cont);
-          props.props.navigation.pop();
+        onPress={() => {
+          sendData(cont);
         }}>
         <Text style={styles.buttonsText}>Sign Up</Text>
       </TouchableOpacity>

@@ -11,11 +11,14 @@ import StackNavigator from './stackNavigator';
 import Ranking from '../screens/RankingScreen/RankingScreen.page';
 import MyVices from '../screens/SelectMyVices/SelectMyVices.page';
 import Wishlist from '../screens/Wishlist';
+import Throw from '../screens/Throw';
+import StackNav from './stackNavigator';
 
 function CustomDrawerCotent(props) {
   const [isShown, setIsShown] = useState(false);
 
   const proceedHandler = () => {
+    setIsShown(false);
     RNSecureStorage.remove('token')
       .then((val) => {
         console.log(val);
@@ -42,10 +45,11 @@ function MyDrawer() {
     <Drawer.Navigator
       drawerType="slide"
       drawerContent={(props) => <CustomDrawerCotent {...props} />}>
-      <Drawer.Screen name="Viciile mele" component={StackNavigator} />
+      <Drawer.Screen name="Viciile mele" component={StackNav} />
       <Drawer.Screen name="Ranking" component={Ranking} />
       <Drawer.Screen name="Selecteaza Viciile" component={MyVices} />
       <Drawer.Screen name="Wishlist" component={Wishlist} />
+      {/* <Drawer.Screen name="Throw" component={Throw} /> */}
     </Drawer.Navigator>
   );
 }

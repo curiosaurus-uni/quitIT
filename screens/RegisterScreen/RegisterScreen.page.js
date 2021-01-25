@@ -3,7 +3,7 @@ import Register from './RegisterScreen.js';
 
 const RegisterPage = (props) => {
   const sendData = (account) => {
-    fetch('https://quitit-dev-as.azurewebsites.net/api/account/register', {
+    fetch('http://www.quit-it.somee.com/api/account/register', {
       method: 'POST',
       headers: {
         Accept: 'application/json',
@@ -20,7 +20,7 @@ const RegisterPage = (props) => {
         if (!response.ok) {
           throw response;
         }
-        return response.json();
+        props.navigation.pop();
       })
       .catch((error) => {
         console.log('eroare');

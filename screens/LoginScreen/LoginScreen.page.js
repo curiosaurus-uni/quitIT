@@ -5,7 +5,7 @@ import Login from './LoginScreen.js';
 const LoginPage = (props) => {
   const login = (credentials) => {
     console.log('am intrat in apel');
-    fetch('https://quitit-dev-as.azurewebsites.net/api/account/login', {
+    fetch('http://www.quit-it.somee.com/api/account/login', {
       method: 'PUT',
       headers: {
         Accept: 'application/json',

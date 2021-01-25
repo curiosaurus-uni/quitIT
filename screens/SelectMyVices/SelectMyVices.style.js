@@ -4,8 +4,10 @@ export default StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#324554',
-    alignItems: 'center',
-    justifyContent: 'center',
+    padding: 15,
+    paddingBottom: Dimensions.get('window').height / 2,
+    // alignItems: 'center',
+    // justifyContent: 'center',
   },
   viewImagine: {
     width: 350,
@@ -16,5 +18,9 @@ export default StyleSheet.create({
     alignSelf: 'center',
     height: '100%',
     width: '100%',
+  },
+  checkboxView: {
+    flexDirection: 'row',
+    backgroundColor: 'white',
   },
 });
