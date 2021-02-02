@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import ListOfVices from './ListOfVices';
 import RNSecureStorage from 'rn-secure-storage';
 
-const ListOfVicesPage = () => {
+const ListOfVicesPage = (props) => {
   const [token, setToken] = useState();
   const [listaVicii, setListaVicii] = useState();
   RNSecureStorage.get('token')
@@ -33,6 +33,7 @@ const ListOfVicesPage = () => {
         setListaVicii(responseJson);
       })
       .catch((eroare) => {
+        // alert('A intervenit o eroare');
         console.log('aici eroare');
         console.log(eroare);
       });
@@ -42,9 +43,12 @@ const ListOfVicesPage = () => {
   }, [token]);
   const refresh = () => {
     getVices();
+    console.log(token);
     setListaVicii(listaVicii);
   };
-  return <ListOfVices listaVicii={listaVicii} refresh={refresh} />;
+  return (
+    <ListOfVices listaVicii={listaVicii} refresh={refresh} props={props} />
+  );
 };
 
 export default ListOfVicesPage;

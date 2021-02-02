@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import RNSecureStorage, {ACCESSIBLE} from 'rn-secure-storage';
 import Login from './LoginScreen.js';
+import {CommonActions} from '@react-navigation/native';
 
 const LoginPage = (props) => {
   const login = (credentials) => {
@@ -32,7 +33,9 @@ const LoginPage = (props) => {
           (res) => {
             console.log('res RNSS');
             console.log(res);
-            props.navigation.navigate('Side');
+            props.navigation.dispatch(
+              CommonActions.reset({index: 0, routes: [{name: 'Side'}]}),
+            );
           },
           (err) => {
             console.log('err RNSS');
@@ -41,6 +44,7 @@ const LoginPage = (props) => {
         );
       })
       .catch((error) => {
+        alert('Username sau parola incorect');
         console.log('eroare apel');
         console.log(error);
       });

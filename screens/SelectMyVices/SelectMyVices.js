@@ -39,6 +39,7 @@ const MyVices = (props) => {
         }
       })
       .catch((error) => {
+        // alert('A intervenit o eroare');
         console.log('eroare');
         console.log(error);
       });

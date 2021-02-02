@@ -13,6 +13,9 @@ import MyVices from '../screens/SelectMyVices/SelectMyVices.page';
 import Wishlist from '../screens/Wishlist';
 import Throw from '../screens/Throw';
 import StackNav from './stackNavigator';
+import Notificari from '../screens/Notificari';
+import ScorulMeu from '../screens/MyScore';
+import {CommonActions} from '@react-navigation/native';
 
 function CustomDrawerCotent(props) {
   const [isShown, setIsShown] = useState(false);
@@ -27,6 +30,9 @@ function CustomDrawerCotent(props) {
         console.log(err);
       });
     setIsShown(false);
+    props.navigation.dispatch(
+      CommonActions.reset({index: 0, routes: [{name: 'Login'}]}),
+    );
     // props.navigation.pop();
   };
 
@@ -49,7 +55,8 @@ function MyDrawer() {
       <Drawer.Screen name="Ranking" component={Ranking} />
       <Drawer.Screen name="Selecteaza Viciile" component={MyVices} />
       <Drawer.Screen name="Wishlist" component={Wishlist} />
-      {/* <Drawer.Screen name="Throw" component={Throw} /> */}
+      <Drawer.Screen name="Notificari" component={Notificari} />
+      <Drawer.Screen name="Scorul Meu" component={ScorulMeu} />
     </Drawer.Navigator>
   );
 }

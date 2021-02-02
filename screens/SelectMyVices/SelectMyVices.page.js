@@ -41,6 +41,7 @@ const MyVicesPage = () => {
         setListaVicii(newListaVicii);
       })
       .catch((eroare) => {
+        // alert('A intervenit o eroare');
         console.log('aici eroare');
         console.log(eroare);
       });

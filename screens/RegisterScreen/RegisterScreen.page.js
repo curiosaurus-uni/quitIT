@@ -23,6 +23,7 @@ const RegisterPage = (props) => {
         props.navigation.pop();
       })
       .catch((error) => {
+        alert('Parola trebuie sa contina caracter mare, caracter mic, cifra si caracter special');
         console.log('eroare');
         console.log(error);
       });

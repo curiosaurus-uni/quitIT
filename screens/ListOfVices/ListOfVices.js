@@ -29,13 +29,14 @@ const ListOfVices = (props) => {
       });
     }
   }, [vicii, bautura, mancare, tigari]);
-  const goToThrow = () => {
-    console.log(props);
+  const goToThrow = (tip, id) => {
+    props.props.navigation.navigate('Throw', {tip: tip, id: id});
   };
   return (
     <View style={styles.container}>
       {mancare ? (
-        <TouchableOpacity onPress={() => goToThrow()}>
+        <TouchableOpacity
+          onPress={() => goToThrow(require('../../assets/burger.png'), 2)}>
           <View style={styles.viewImagine}>
             <Image
               source={require('../../assets/mananci.jpg')}
@@ -45,7 +46,8 @@ const ListOfVices = (props) => {
         </TouchableOpacity>
       ) : null}
       {bautura ? (
-        <TouchableOpacity onPress={() => goToThrow()}>
+        <TouchableOpacity
+          onPress={() => goToThrow(require('../../assets/bere.png'), 1)}>
           <View style={styles.viewImagine}>
             <Image
               source={require('../../assets/bei.jpg')}
@@ -55,7 +57,8 @@ const ListOfVices = (props) => {
         </TouchableOpacity>
       ) : null}
       {tigari ? (
-        <TouchableOpacity onPress={() => goToThrow()}>
+        <TouchableOpacity
+          onPress={() => goToThrow(require('../../assets/titi.png'), 3)}>
           <View style={styles.viewImagine}>
             <Image
               source={require('../../assets/fumezi.jpg')}
